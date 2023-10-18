@@ -43,9 +43,10 @@ module "eks" {
 
   cluster_addons = {
     coredns = {
-      preserve    = true
-      most_recent = true
-
+      preserve                    = true
+      most_recent                 = true
+      resolve_conflicts_on_update = "PRESERVE"
+      resolve_conflicts_on_create = "OVERWRITE"
       timeouts = {
         create = "25m"
         delete = "10m"
